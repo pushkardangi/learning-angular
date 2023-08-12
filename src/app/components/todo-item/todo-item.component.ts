@@ -13,7 +13,6 @@ export class TodoItemComponent {
 
   handleDelete(todo: Todo){
     this.deleteTodo.emit(todo);
-    console.log('Button clicked!');
   }
 
 }
