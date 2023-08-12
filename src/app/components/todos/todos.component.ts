@@ -33,4 +33,11 @@ export class TodosComponent {
     ];
 
   }
+
+  handleDeleteTodo(todo: Todo){
+    console.log('Deleted todo', todo);
+    const index = this.todos.indexOf(todo);
+    this.todos.splice(index, 1);
+  }
+
 }
