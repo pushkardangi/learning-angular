@@ -1,7 +1,12 @@
 <div class="container">
-  <h1 class="my-4">Todos</h1>
+  <h3 class="my-4">Add Todo</h3>
+  <add-todo (addTodo)="handleAddTodo($event)"></add-todo>
 
-  <div *ngFor="let todo of todos">
-    <todo-item [todo]="todo" (deleteTodo)="handleDeleteTodo($event)"></todo-item>
-  </div>
+  <h3 class="my-4">Your Todos</h3>
+  <div *ngIf="todos.length==0; else showTodos">No Todos to show.</div>
+  <ng-template #showTodos>
+    <div *ngFor="let todo of todos">
+      <todo-item [todo]="todo" (deleteTodo)="handleDeleteTodo($event)"></todo-item>
+    </div>
+  </ng-template>
 </div>
