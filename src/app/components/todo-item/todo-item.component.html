@@ -1,11 +1,17 @@
 
 <div class="card mb-3">
   <div class="card-body">
-    <h5 class="card-title">{{ todo.title }}</h5>
-    <p class="card-text">{{ todo.desc }}</p>
-    <div class="d-grid gap-2 d-flex justify-content-end">
-      <button class="btn btn-outline-primary btn-sm me-2" type="button">Edit</button>
-      <button class="btn btn-outline-danger btn-sm" type="button" (click)="handleDelete(todo)">Delete</button>
+    <h5 class="card-title {{ todo.active ? 'nostrike' : 'strike' }}">{{ todo.title }}</h5>
+    <p class="card-text {{ todo.active ? 'nostrike' : 'strike' }}">{{ todo.desc }}</p>
+    <div class="d-grid d-flex justify-content-between">
+      <div class="form-check">
+        <input type="Checkbox" class="form-check-input" id="todo{{i}}" (click)="emitMarkAsDone(todo)" [checked]="!todo.active">
+        <label class="form-check-label" for="todo{{i}}">Mark as done</label>
+      </div>
+      <div>
+        <button class="btn btn-outline-primary btn-sm me-3" type="button">Edit</button>
+        <button class="btn btn-outline-danger btn-sm" type="button" (click)="handleDelete(todo)">Delete</button>
+      </div>
     </div>
   </div>
 </div>

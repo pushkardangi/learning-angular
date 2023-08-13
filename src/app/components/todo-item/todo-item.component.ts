@@ -9,10 +9,16 @@ import { Todo } from '../../Todo';
 export class TodoItemComponent {
 
   @Input() todo!: Todo;
+  @Input() i!: number;
   @Output() deleteTodo: EventEmitter<Todo> = new EventEmitter();
+  @Output() toggleTodo: EventEmitter<Todo> = new EventEmitter();
 
   handleDelete(todo: Todo){
     this.deleteTodo.emit(todo);
+  }
+
+  emitMarkAsDone(todo: Todo){
+    this.toggleTodo.emit(todo);
   }
 
 }
