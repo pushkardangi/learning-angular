@@ -1,9 +1,9 @@
 
 <div class="container">
-  <h3 class="my-4">Add Todo</h3>
+  <h4 class="my-4">Add todo</h4>
   <add-todo (addTodo)="handleAddTodo($event)"></add-todo>
 
-  <h3 class="my-4">Your Todos</h3>
+  <h4 class="my-4">Your todo<i>s</i></h4>
   <div *ngIf="todos.length==0; else showTodos">No Todos to show.</div>
   <ng-template #showTodos>
     <div *ngFor="let todo of todos; index as i">

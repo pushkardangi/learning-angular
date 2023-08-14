@@ -1,4 +1,8 @@
-.strike{
+.strike {
     text-decoration: line-through;
+    color: #cdcdcd;
+}
+
+.colour-fade {
     color: #cdcdcd;
 }
