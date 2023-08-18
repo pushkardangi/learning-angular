@@ -1,6 +1,6 @@
 <a name="readme-top"></a>
 
-# LearningAngular
+# Todo-app [![Live Link](https://img.shields.io/badge/live_link-1e394e?style=for-the-badge&logo=&logoColor=white)](https://todo-app-pd.vercel.app/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.6.
 
@@ -51,4 +51,4 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-<p align="right">[<a href="#readme-top">back to top</a>]</p>
+<p align="right"><a href="#readme-top">[back to top]</a></p>
