@@ -19,7 +19,11 @@ export class AddTodoComponent {
       desc: this.desc,
       active: true,
     }
-    this.addTodo.emit(todo);
+    if(this.title.trim() !== ''){
+      this.addTodo.emit(todo);
+    } else {
+      alert('Please provide valid data');
+    }
   }
 
 
