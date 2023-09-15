@@ -11,7 +11,7 @@ export class AddTodoComponent {
 
   @Output() addTodo: EventEmitter<Todo> = new EventEmitter();
   @Output() editTodo: EventEmitter<Todo> = new EventEmitter();
-  
+
   title!: string;
   desc!: string;
 
