@@ -1,7 +1,7 @@
 
 <div class="container">
   <h4 class="my-4">Add todo</h4>
-  <add-todo (addTodo)="handleAddTodo($event)"></add-todo>
+  <add-todo (addTodo)="handleAddTodo($event)" (editTodo)="handleEditTodo($event)" [value]="editValues"></add-todo>
 
   <div class="row mt-3 mb-3">
     <div class="col-8">
@@ -18,7 +18,7 @@
   <div *ngIf="todos.length==0; else showTodos">No Todos to show.</div>
   <ng-template #showTodos>
     <div *ngFor="let todo of todos; index as i">
-      <todo-item [todo]="todo" [i]="i" (deleteTodo)="handleDeleteTodo($event)" (toggleTodo)="handleMarkAsDone($event)"></todo-item>
+      <todo-item [todo]="todo" [i]="i" (deleteTodo)="handleDeleteTodo($event)" (editTodo)="handleEditTodoButton($event)" (toggleTodo)="handleMarkAsDone($event)"></todo-item>
     </div>
   </ng-template>
 </div>

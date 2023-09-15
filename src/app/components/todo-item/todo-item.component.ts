@@ -12,6 +12,7 @@ export class TodoItemComponent {
   @Input() i!: number;
   @Output() deleteTodo: EventEmitter<Todo> = new EventEmitter();
   @Output() toggleTodo: EventEmitter<Todo> = new EventEmitter();
+  @Output() editTodo:  EventEmitter<Todo> = new EventEmitter();
 
   handleDelete(todo: Todo){
     this.deleteTodo.emit(todo);
@@ -19,6 +20,10 @@ export class TodoItemComponent {
 
   emitMarkAsDone(todo: Todo){
     this.toggleTodo.emit(todo);
+  }
+
+  handleEdit(todo: Todo){
+    this.editTodo.emit(todo);
   }
 
 }

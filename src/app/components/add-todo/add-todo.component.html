@@ -1,13 +1,14 @@
-<form (ngSubmit)="onSubmit()">
+<form (ngSubmit)="value ? onEdit() : onSubmit();">
+  <input type="hidden" [value]="value?.sno" id="sno" name="sno">
   <div class="mb-3">
     <label for="title" class="form-label">Title</label>
-    <input type="text" [(ngModel)]="title" class="form-control" id="title" name="title">
+    <input type="text" [value]="value?.title" [(ngModel)]="title" class="form-control" #titleInput name="title">
   </div>
   <div class="mb-3">
     <label for="desc" class="form-label">Description</label>
-    <input type="text" [(ngModel)]="desc" class="form-control" id="desc" name="desc">
+    <input type="text" [value]="value?.desc" [(ngModel)]="desc" class="form-control" #descInput name="desc">
   </div>
   <div class="d-flex justify-content-end">
-    <button type="submit" class="btn btn-primary">Add Todo</button>
+    <button type="submit" class="btn btn-primary">{{value ? 'Edit Todo' : 'Add Todo'}}</button>
   </div>
 </form>

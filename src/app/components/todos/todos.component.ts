@@ -9,7 +9,7 @@ import { Todo } from '../../Todo';
 export class TodosComponent {
   todos: Todo[];
   localItem: string | null;
-
+  editValues!: Todo;
   constructor() {
     this.localItem = localStorage.getItem('todos');
     if (this.localItem == null) {
@@ -33,6 +33,23 @@ export class TodosComponent {
   handleMarkAsDone(todo: Todo) {
     const index = this.todos.indexOf(todo);
     this.todos[index].active = !this.todos[index].active;
+    localStorage.setItem('todos', JSON.stringify(this.todos));
+  }
+
+  handleEditTodoButton(todo: Todo){
+    this.editValues = todo;
+    console.log(todo);
+  }
+
+  handleEditTodo(todo: Todo){
+    const editedTodo = this.todos.find((t) => {
+      return t.sno == todo.sno;
+    });
+    if(editedTodo){
+      editedTodo.title = todo.title;
+      editedTodo.desc = todo.desc;
+    }
+
     localStorage.setItem('todos', JSON.stringify(this.todos));
   }
 }
