@@ -1,13 +1,24 @@
 
 <div class="container">
   <h4 class="my-4">Add todo</h4>
-  <add-todo (addTodo)="handleAddTodo($event)"></add-todo>
+  <add-todo (addTodo)="handleAddTodo($event)" (editTodo)="handleEditTodo($event)" [value]="editValues"></add-todo>
 
-  <h4 class="my-4">Your todo<i>s</i></h4>
+  <div class="row mt-3 mb-3">
+    <div class="col-8">
+      <h4 class="mt-4">Your todo<i>s</i></h4>
+    </div>
+    <div class="col">
+      <form class="d-flex mt-3" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-primary" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+  
   <div *ngIf="todos.length==0; else showTodos">No Todos to show.</div>
   <ng-template #showTodos>
     <div *ngFor="let todo of todos; index as i">
-      <todo-item [todo]="todo" [i]="i" (deleteTodo)="handleDeleteTodo($event)" (toggleTodo)="handleMarkAsDone($event)"></todo-item>
+      <todo-item [todo]="todo" [i]="i" (deleteTodo)="handleDeleteTodo($event)" (editTodo)="handleEditTodoButton($event)" (toggleTodo)="handleMarkAsDone($event)"></todo-item>
     </div>
   </ng-template>
 </div>
