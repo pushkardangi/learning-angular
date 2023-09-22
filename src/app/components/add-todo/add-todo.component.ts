@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Todo } from 'src/app/Todo';
 
 @Component({
@@ -16,7 +17,7 @@ export class AddTodoComponent {
   desc!: string;
 
 
-  onSubmit() {
+  onSubmit(todoForm: NgForm) {
     const todo = {
       sno: new Date().getTime(),
       title: this.title,
@@ -27,7 +28,7 @@ export class AddTodoComponent {
     if(this.title){
       if(this.title.trim() !== ''){
         this.addTodo.emit(todo);
-        this.clearInput();
+        todoForm.reset();
       } else {
         alert('Please provide valid Title');
       }
